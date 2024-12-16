@@ -40,7 +40,7 @@ import CommunityChat from "./components/Community/ChatCommunity";
 import CreateCommunity from "./components/Community/CreateCommunity";
 import UpdateCommunity from "./components/Community/UpdateCommunity";
 
-import Premium from "./components/premium/Premium";
+import Premium from "./components/Premium/Premium";
 
 import "leaflet/dist/leaflet.css";
 
