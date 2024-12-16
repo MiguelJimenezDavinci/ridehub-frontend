@@ -222,9 +222,11 @@ const EventMap = () => {
             position={[event.latitude, event.longitude]}
             icon={L.divIcon({
               className: "custom-icon",
-              html: `
-                      <FontAwesomeIcon icon={faMapMarkerAlt} className="h-10 w-10" />
-              `,
+              html: `<div class="custom-icon-marker">
+                <img src="${event.image}" alt="${event.title}" class="h-12 w-12 rounded-full object-cover object-center"/>
+              </div>`,
+              iconSize: [30, 30],
+              iconAnchor: [15, 30],
             })}
           >
             <Popup
