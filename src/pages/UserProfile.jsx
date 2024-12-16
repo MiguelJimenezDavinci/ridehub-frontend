@@ -318,7 +318,7 @@ const UserProfile = () => {
                           className="cursor-pointer border rounded shadow-md"
                         >
                           <img
-                            src={`/${post.media}`}
+                            src={`${post.media}`}
                             alt="Post"
                             className="w-full h-48 object-cover rounded-t"
                           />
@@ -385,7 +385,7 @@ const UserProfile = () => {
                           onClick={() => handleShowEvent(event._id)}
                         >
                           <img
-                            src={`/${event.image}`}
+                            src={`${event.image}`}
                             alt="Event"
                             className="w-full h-48 object-cover rounded-t"
                           />
@@ -444,7 +444,7 @@ const UserProfile = () => {
                           <img
                             src={
                               comm.media
-                                ? `/${comm.media}`
+                                ? `${comm.media}`
                                 : "../default-image.jpg"
                             }
                             alt="Community"

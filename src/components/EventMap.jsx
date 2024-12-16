@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import L from "leaflet";
 import {
   faUser,
   faLocationDot,
@@ -215,7 +216,14 @@ const EventMap = () => {
           attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
         {eventos.map((event) => (
-          <Marker key={event._id} position={[event.latitude, event.longitude]}>
+          <Marker
+            key={event._id}
+            position={[event.latitude, event.longitude]}
+            icon={L.divIcon({
+              className: "custom-icon",
+              html: `<img src="${event.image}" alt="${event.title}" class="h-10 w-10 rounded-full object-cover object-center">`,
+            })}
+          >
             <Popup
               closeButton={true}
               autoClose={true}
