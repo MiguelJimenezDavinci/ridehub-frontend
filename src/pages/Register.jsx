@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SecondaryButton from "../components/Button/SecondaryButton";
 import { register } from "../service/auth";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -231,12 +232,12 @@ const Register = () => {
         <div className="mt-2 text-center">
           <p className="text-xs sm:text-sm">
             ¿Ya tienes cuenta?{" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="text-slate-900 font-medium hover:underline"
             >
               Inicia sesión
-            </a>
+            </Link>
           </p>
         </div>
       </div>
