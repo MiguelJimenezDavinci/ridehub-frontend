@@ -7,6 +7,7 @@ import {
   faUser,
   faLocationDot,
   faCalendarAlt,
+  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { getEvents } from "../service/events";
 import { useNavigate } from "react-router-dom";
@@ -221,7 +222,28 @@ const EventMap = () => {
             position={[event.latitude, event.longitude]}
             icon={L.divIcon({
               className: "custom-icon",
-              html: `<img src="${event.image}" alt="${event.title}" class="h-10 w-10 rounded-full object-cover object-center">`,
+              html: `
+                <div class="flex flex-col gap-2 items-center justify-center">
+                  ${
+                    event.category
+                      ? `
+                    <span class="${
+                      categoryStyles[event.category.toLowerCase()] ||
+                      categoryStyles.otros
+                    }">
+                      <FontAwesomeIcon icon={faMapMarkerAlt} />
+                    </span>`
+                      : ""
+                  }
+                  <div>
+                    <img
+                      src="${event.image}"
+                      alt="${event.title}"
+                      class="h-10 w-10 rounded-full object-cover object-center"
+                    />
+                  </div>
+                </div>
+              `,
             })}
           >
             <Popup
