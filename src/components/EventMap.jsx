@@ -139,7 +139,11 @@ const EventMap = () => {
                   className="cursor-pointer border rounded shadow-md w-full"
                 >
                   <img
-                    src={`${API_URL}/${event.image}`}
+                    src={
+                      event.image
+                        ? `${API_URL}/${event.image}`
+                        : "../default-image.jpg"
+                    }
                     alt="Post"
                     className="w-full h-48 object-cover rounded-t"
                   />

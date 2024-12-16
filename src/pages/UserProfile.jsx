@@ -205,7 +205,7 @@ const UserProfile = () => {
                       </p>
                       <p>
                         Matrícula:{" "}
-                        {profileData.bikeDetails.licensePlate.toUpperCase() ||
+                        {profileData.bikeDetails.licensePlate?.toUpperCase() ||
                           "No especificado"}
                       </p>
                     </div>
