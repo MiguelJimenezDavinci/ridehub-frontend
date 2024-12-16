@@ -223,7 +223,11 @@ const EventMap = () => {
             icon={L.divIcon({
               className: "custom-icon",
               html: `<div class="custom-icon-marker">
-                <img src="${event.image}" alt="${event.title}" class="h-12 w-12 rounded-full object-cover object-center"/>
+                <img src="${
+                  event.image ? `${event.image}` : "../default-image.jpg"
+                }" alt="${
+                event.title
+              }" class="h-12 w-12 rounded-full object-cover object-center"/>
               </div>`,
               iconSize: [30, 30],
               iconAnchor: [15, 30],
