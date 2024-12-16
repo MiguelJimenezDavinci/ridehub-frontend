@@ -145,7 +145,7 @@ const EventMap = () => {
                         : "../default-image.jpg"
                     }
                     alt="Post"
-                    className="w-full h-48 object-cover rounded-t"
+                    className="w-full h-48 object-cover object-center rounded-t"
                   />
                   <div className="w-full p-4 ">
                     <div>
