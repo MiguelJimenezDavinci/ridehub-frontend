@@ -227,10 +227,10 @@ const EventMap = () => {
                   event.image ? `${event.image}` : "../default-image.jpg"
                 }" alt="${
                 event.title
-              }" class="h-12 w-12 rounded-full object-cover object-center"/>
+              }" class="h-12 w-12 rounded-full object-contain object-center"/>
               </div>`,
               iconSize: [30, 30],
-              iconAnchor: [15, 30],
+              iconAnchor: [30, 30],
             })}
           >
             <Popup
