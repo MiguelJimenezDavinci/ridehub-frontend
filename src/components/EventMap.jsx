@@ -223,7 +223,7 @@ const EventMap = () => {
             icon={L.divIcon({
               className: "custom-icon",
               html: `
-                      <FontAwesomeIcon icon={faMapMarkerAlt} />
+                      <FontAwesomeIcon icon={faMapMarkerAlt} className="h-10 w-10" />
               `,
             })}
           >
