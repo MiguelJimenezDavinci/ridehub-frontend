@@ -12,6 +12,7 @@ import SecondaryButton from "../Button/SecondaryButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCrown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CommunityChat = () => {
   const { communityId } = useParams(); // Obtén el ID de la comunidad
@@ -164,7 +165,7 @@ const CommunityChat = () => {
             <img
               src={
                 users[communityMessages[0]?.sender]?.data?.photo
-                  ? `http://localhost:5000/uploads/${
+                  ? `${API_URL}/uploads/${
                       users[communityMessages[0]?.sender]?.data?.photo
                     }`
                   : "../default-image.jpg"
@@ -197,7 +198,7 @@ const CommunityChat = () => {
             <img
               src={
                 communityData.media
-                  ? `http://localhost:5000/${communityData.media}`
+                  ? `${API_URL}/${communityData.media}`
                   : "../default-image.jpg"
               }
               alt=""
@@ -230,7 +231,7 @@ const CommunityChat = () => {
                         <img
                           src={
                             users[msg.sender]?.data?.photo
-                              ? `http://localhost:5000/uploads/${
+                              ? `${API_URL}/uploads/${
                                   users[msg.sender]?.data?.photo
                                 }`
                               : "../default-image.jpg"

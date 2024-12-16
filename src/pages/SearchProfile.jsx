@@ -11,6 +11,7 @@ const SearchProfile = () => {
   const [error, setError] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -87,7 +88,7 @@ const SearchProfile = () => {
                 <img
                   src={
                     userProfile.photo
-                      ? `http://localhost:5000/uploads/${userProfile.photo}`
+                      ? `${API_URL}/uploads/${userProfile.photo}`
                       : "../default-image.jpg"
                   }
                   alt={userProfile.fullName}
@@ -125,7 +126,7 @@ const SearchProfile = () => {
                     <img
                       src={
                         user.photo
-                          ? `http://localhost:5000/uploads/${user.photo}`
+                          ? `${API_URL}/uploads/${user.photo}`
                           : "../default-image.jpg"
                       }
                       alt={user.fullName}

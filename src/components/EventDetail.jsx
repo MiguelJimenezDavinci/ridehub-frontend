@@ -1,7 +1,7 @@
 // src/components/EventDetail.jsx
-import React, { useEffect, useState } from 'react';
-import { getEvent, leaveEvent } from '../service/Events';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { getEvent, leaveEvent } from "../service/Events";
+import { useParams } from "react-router-dom";
 
 const EventDetail = () => {
   const { eventId } = useParams();

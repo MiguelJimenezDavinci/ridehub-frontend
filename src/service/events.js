@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+// Configuración de axios para el backend
 const api = axios.create({
-  baseURL: "http://localhost:5000/api/events", // Asegúrate de que esta URL coincide con tu backend
+  baseURL: API_URL, // Directamente la variable, no es necesario envolverla en un objeto
 });
 
 // Interceptor para agregar token a las solicitudes
@@ -22,7 +24,7 @@ const handleError = (error) => {
 // Funciones de eventos
 export const createEvent = (eventData) => {
   try {
-    const response = api.post("/", eventData);
+    const response = api.post("/api/events/", eventData);
     return response.data;
   } catch (error) {
     return console.error("Error al crear evento:", error);
@@ -30,19 +32,20 @@ export const createEvent = (eventData) => {
 };
 
 export const updateEvent = (eventId, eventData) => {
-  api.put(`/${eventId}`, eventData).catch(handleError);
+  api.put(`/api/events/${eventId}`, eventData).catch(handleError);
 };
 
 export const deleteEvent = (eventId) =>
-  api.delete(`/${eventId}`).catch(handleError);
+  api.delete(`/api/events/${eventId}`).catch(handleError);
 
-export const getEventById = (id) => api.get(`/${id}`).catch(handleError); // Asegúrate de que la URL sea correcta
+export const getEventById = (id) =>
+  api.get(`/api/events/${id}`).catch(handleError); // Asegúrate de que la URL sea correcta
 
-export const getEvents = () => api.get("/").catch(handleError);
+export const getEvents = () => api.get("/api/events/").catch(handleError);
 
 export const getEventsByUserId = async (userId) => {
   try {
-    const response = await api.get(`/user/${userId}`); // Ajusta la ruta si es necesario
+    const response = await api.get(`/api/events/user/${userId}`); // Ajusta la ruta si es necesario
     return response.data;
   } catch (error) {
     console.error("Error al obtener publicaciones:", error);
@@ -52,7 +55,7 @@ export const getEventsByUserId = async (userId) => {
 
 export const joinEvent = async (eventId) => {
   try {
-    const response = await api.post(`/${eventId}/join`);
+    const response = await api.post(`/api/events/${eventId}/join`);
     // Validar la respuesta
     if (response && response.data && response.data.event) {
       return response.data; // Retorna el resultado de unirse al evento
@@ -69,7 +72,7 @@ export const joinEvent = async (eventId) => {
 
 export const leaveEvent = async (eventId) => {
   try {
-    const response = await api.post(`/${eventId}/leave`);
+    const response = await api.post(`/api/events/${eventId}/leave`);
     // Validar la respuesta
     if (response && response.data && response.data.event) {
       return response.data; // Retorna el resultado de dejar el evento
@@ -85,20 +88,20 @@ export const leaveEvent = async (eventId) => {
 };
 
 export const getEventsByDate = (date) =>
-  api.get(`/date/${date}`).catch(handleError);
+  api.get(`/api/events/date/${date}`).catch(handleError);
 
 export const getEventsByLocation = (location) =>
-  api.get(`/location/${location}`).catch(handleError);
+  api.get(`/api/events/location/${location}`).catch(handleError);
 
 export const getEventsByTitle = (title) =>
-  api.get(`/title/${title}`).catch(handleError);
+  api.get(`/api/events/title/${title}`).catch(handleError);
 
 export const getEventsByDescription = (description) =>
-  api.get(`/description/${description}`).catch(handleError);
+  api.get(`/api/events/description/${description}`).catch(handleError);
 
 export const likeEvent = async (id) => {
   try {
-    const response = await api.post(`/${id}/like`);
+    const response = await api.post(`/api/events/${id}/like`);
     return response.data; // Retorna el resultado del "like"
   } catch (error) {
     handleError(error);
@@ -107,7 +110,7 @@ export const likeEvent = async (id) => {
 
 export const commentOnEvent = async (id, commentData) => {
   try {
-    const response = await api.post(`/${id}/comment`, commentData);
+    const response = await api.post(`/api/events/${id}/comment`, commentData);
     return response.data; // Retorna el comentario creado
   } catch (error) {
     handleError(error);
@@ -116,7 +119,7 @@ export const commentOnEvent = async (id, commentData) => {
 
 export const getRelatedEvents = async (eventId) => {
   try {
-    const response = await api.get(`/${eventId}/related`);
+    const response = await api.get(`/api/events/${eventId}/related`);
     return response.data; // Retorna las publicaciones relacionadas
   } catch (error) {
     handleError(error);

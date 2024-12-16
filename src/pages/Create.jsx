@@ -16,6 +16,7 @@ const Create = () => {
   const handleEventCreation = () => {
     navigate("/create/event"); // Redirige a la vista para crear eventos
   };
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleCommunityCreation = async () => {
     if (user.role === "user") {

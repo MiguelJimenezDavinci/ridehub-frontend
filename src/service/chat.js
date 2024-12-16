@@ -1,25 +1,25 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const getUsers = async () => {
-  const response = await axios.get(`${API_URL}/users`);
+  const response = await axios.get(`${API_URL}/api/users`);
   return response.data;
 };
 
 export const getMessages = async (conversationId) => {
-  const response = await axios.get(`${API_URL}/messages/${conversationId}`);
+  const response = await axios.get(`${API_URL}/api/messages/${conversationId}`);
   return response.data;
 };
 
 export const sendMessage = async (message) => {
-  const response = await axios.post(`${API_URL}/messages`, message);
+  const response = await axios.post(`${API_URL}/api/messages`, message);
   return response.data;
 };
 
 export const getOrCreateConversation = async (senderId, receiverId) => {
   try {
-    const response = await axios.post(`${API_URL}/messages/conversations`, {
+    const response = await axios.post(`${API_URL}/api/messages/conversations`, {
       senderId,
       receiverId,
     });
@@ -33,7 +33,7 @@ export const getOrCreateConversation = async (senderId, receiverId) => {
 export const getConversations = async (userId) => {
   try {
     const response = await axios.get(
-      `${API_URL}/messages/conversations/${userId}`
+      `${API_URL}/api/messages/conversations/${userId}`
     );
     return response.data;
   } catch (error) {
@@ -45,7 +45,7 @@ export const getConversations = async (userId) => {
 export const getConversationById = async (conversationId) => {
   try {
     const response = await axios.get(
-      `${API_URL}/messages/conversations/${conversationId}`
+      `${API_URL}/api/messages/conversations/${conversationId}`
     );
     return response.data;
   } catch (error) {

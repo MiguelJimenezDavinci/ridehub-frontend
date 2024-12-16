@@ -7,6 +7,7 @@ import { useAuth } from "../../context/AuthContext";
 import SecondaryButton from "../../components/Button/SecondaryButton";
 import { faCrown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const MySwal = withReactContent(Swal);
 
@@ -62,7 +63,7 @@ const UserList = ({ onSelectUser }) => {
             title: `¿Seleccionar a ${userProfile.fullName}?`,
             text: `@${userProfile.username}`,
             imageUrl: userProfile.photo
-              ? `http://localhost:5000/uploads/${userProfile.photo}`
+              ? `${API_URL}/uploads/${userProfile.photo}`
               : "../default-image.jpg",
             imageWidth: 64,
             imageHeight: 64,
@@ -134,7 +135,7 @@ const UserList = ({ onSelectUser }) => {
                   <img
                     src={
                       otherUser.photo
-                        ? `http://localhost:5000/uploads/${otherUser.photo}`
+                        ? `${API_URL}/uploads/${otherUser.photo}`
                         : "../default-image.jpg"
                     }
                     alt={otherUser.fullName || "Usuario"}

@@ -26,6 +26,7 @@ const UserProfile = () => {
   const [events, setEvents] = useState([]);
   const [communities, setCommunities] = useState([]);
   const [view, setView] = useState("posts");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const navigate = useNavigate();
 
@@ -121,7 +122,7 @@ const UserProfile = () => {
               <img
                 src={
                   profileData.photo
-                    ? `http://localhost:5000/uploads/${profileData.photo}`
+                    ? `${API_URL}/uploads/${profileData.photo}`
                     : "../default-image.jpg"
                 }
                 alt="Profile"
@@ -270,7 +271,7 @@ const UserProfile = () => {
                           className="cursor-pointer border rounded shadow-md"
                         >
                           <img
-                            src={`http://localhost:5000/${post.media}`}
+                            src={`${API_URL}/${post.media}`}
                             alt="Post"
                             className="w-full h-48 object-cover rounded-t"
                           />
@@ -337,7 +338,7 @@ const UserProfile = () => {
                           onClick={() => handleShowEvent(event._id)}
                         >
                           <img
-                            src={`http://localhost:5000/${event.image}`}
+                            src={`${API_URL}/${event.image}`}
                             alt="Event"
                             className="w-full h-48 object-cover rounded-t"
                           />
@@ -396,7 +397,7 @@ const UserProfile = () => {
                           <img
                             src={
                               comm.media
-                                ? `http://localhost:5000/${comm.media}`
+                                ? `${API_URL}/${comm.media}`
                                 : "../default-image.jpg"
                             }
                             alt="Community"

@@ -74,6 +74,7 @@ const UpdatePost = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -138,24 +139,13 @@ const UpdatePost = () => {
           <h1 className="text-2xl font-bold mb-4 text-center md:text-left">
             Editar Publicación
           </h1>
-          {/*  {postData.media ? (
-            <img
-              src={`http://localhost:5000/${postData.media}`}
-              alt="Vista previa"
-              className="w-full h-auto rounded-lg"
-            />
-          ) : (
-            <div className="bg-gray-300 w-full h-64 rounded-lg flex items-center justify-center text-gray-700">
-              Selecciona una imagen o video
-            </div>
-          )} */}
 
           {postData.media || selectedFile ? (
             <img
               src={
                 selectedFile
                   ? URL.createObjectURL(selectedFile) // Imagen seleccionada
-                  : `http://localhost:5000/${postData.media}` // Imagen del servidor
+                  : `${API_URL}/${postData.media}` // Imagen del servidor
               }
               alt="Vista previa"
               className="bg-gray-300 w-full h-64 rounded-lg flex items-center justify-center text-gray-700 object-cover object-center"

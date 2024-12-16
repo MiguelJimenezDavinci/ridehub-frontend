@@ -10,6 +10,7 @@ const UpdateCommunity = () => {
   const [description, setDescription] = useState("");
   const [media, setMedia] = useState(null);
   const [existingMedia, setExistingMedia] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -88,7 +89,7 @@ const UpdateCommunity = () => {
               />
             ) : existingMedia ? (
               <img
-                src={`http://localhost:5000/${existingMedia}`}
+                src={`${API_URL}/${existingMedia}`}
                 alt="Evento"
                 className="bg-gray-300 w-64 h-64 rounded-full object-cover object-center"
               />

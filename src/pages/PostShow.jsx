@@ -25,6 +25,7 @@ const PostShow = () => {
   const [hasLiked, setHasLiked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [relatedPosts, setRelatedPosts] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [visibleCount, setVisibleCount] = useState(3); // Número inicial de publicaciones visibles
 
@@ -130,14 +131,14 @@ const PostShow = () => {
           {/* Post Content */}
           <div className=" w-full p-4">
             <img
-              src={`http://localhost:5000/${post.media}`}
+              src={`${API_URL}/${post.media}`}
               alt="Post"
               className="w-full h-48 object-cover object-center rounded-xl mb-2"
             />
 
             <div className="flex items-center ">
               <img
-                src={`http://localhost:5000/uploads/${post.creator?.photo}`}
+                src={`${API_URL}/uploads/${post.creator?.photo}`}
                 alt={post.creator?.username || "Imagen no disponible"}
                 className="w-10 h-10 object-cover rounded-full"
               />
@@ -202,7 +203,7 @@ const PostShow = () => {
                       <img
                         src={
                           c.user.photo
-                            ? `http://localhost:5000/uploads/${c.user.photo}`
+                            ? `${API_URL}/uploads/${c.user.photo}`
                             : "../default-image.jpg"
                         }
                         alt="Profile"
@@ -264,7 +265,7 @@ const PostShow = () => {
                     className="cursor-pointer border rounded shadow-md"
                   >
                     <img
-                      src={`http://localhost:5000/${post.media}`}
+                      src={`${API_URL}/${post.media}`}
                       alt="Post"
                       className="w-full h-48 object-cover rounded-t"
                     />

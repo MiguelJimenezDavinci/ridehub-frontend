@@ -22,6 +22,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SecondaryButton from "../components/Button/SecondaryButton";
 import PrimaryButton from "../components/Button/PrimaryButton";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ShowEvent = () => {
   const { id } = useParams();
@@ -195,14 +196,14 @@ const ShowEvent = () => {
         <div className="flex flex-col md:flex-row max-w-4xl w-full bg-white shadow-md rounded-lg p-4 ">
           <div className="w-full p-4">
             <img
-              src={`http://localhost:5000/${event.image}`}
+              src={`${API_URL}/${event.image}`}
               alt="event"
               className="w-full h-48 object-cover object-center rounded-xl mb-2"
             />
             <p className="hover:text-red-700 mb-2 font-semibold">
               <div className="flex items-center">
                 <img
-                  src={`http://localhost:5000/uploads/${event.creator.photo}`}
+                  src={`${API_URL}/uploads/${event.creator.photo}`}
                   alt="Profile"
                   className="w-10 h-10 object-cover object-center rounded-full mr-2"
                 />{" "}
@@ -291,7 +292,7 @@ const ShowEvent = () => {
                         <img
                           src={
                             c.user.photo
-                              ? `http://localhost:5000/uploads/${c.user.photo}`
+                              ? `${API_URL}/uploads/${c.user.photo}`
                               : "../default-image.jpg"
                           }
                           alt="Profile"
@@ -360,7 +361,7 @@ const ShowEvent = () => {
                       <img
                         src={
                           event.image
-                            ? `http://localhost:5000/${event.image}`
+                            ? `${API_URL}/${event.image}`
                             : "../default-image.jpg"
                         }
                         alt="Post"

@@ -1,10 +1,11 @@
 import axios from "axios";
 
 // Configuración de la URL de la API
-const API_URL = "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL; // Tomar la URL desde .env o localhost como fallback
 
+// Crear una instancia de axios
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // Asegúrate de que esta URL coincide con tu backend
+  baseURL: API_URL, // Asegúrate de que esta URL coincide con tu backend
 });
 
 // Interceptor para agregar token a las solicitudes
@@ -20,7 +21,7 @@ api.interceptors.request.use((config) => {
 export const createCommunity = async (communityData) => {
   try {
     console.log(communityData);
-    const response = await api.post(`${API_URL}/communities`, communityData);
+    const response = await api.post("/api/communities", communityData);
     return response.data;
   } catch (error) {
     console.error("Error creating community:", error);
@@ -31,7 +32,7 @@ export const createCommunity = async (communityData) => {
 // Obtener todas las comunidades
 export const getAllCommunities = async () => {
   try {
-    const response = await axios.get(`${API_URL}/communities`);
+    const response = await api.get("/api/communities");
     return response.data;
   } catch (error) {
     console.error("Error fetching communities:", error);
@@ -41,7 +42,7 @@ export const getAllCommunities = async () => {
 
 export const getCommunityById = async (communityId) => {
   try {
-    const response = await axios.get(`${API_URL}/communities/${communityId}`);
+    const response = await api.get(`/api/communities/${communityId}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching community:", error);
@@ -52,7 +53,7 @@ export const getCommunityById = async (communityId) => {
 // Obtener comunidades por usuario
 export const getCommunityByUserId = async (userId) => {
   try {
-    const response = await api.get(`/communities/user/${userId}`);
+    const response = await api.get(`/api/communities/user/${userId}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching user communities:", error);
@@ -64,7 +65,7 @@ export const getCommunityByUserId = async (userId) => {
 export const updateCommunity = async (communityId, communityData) => {
   try {
     const response = await api.put(
-      `/communities/${communityId}`,
+      `/api/communities/${communityId}`,
       communityData
     );
     return response.data;
@@ -77,7 +78,7 @@ export const updateCommunity = async (communityId, communityData) => {
 // Eliminar comunidad
 export const deleteCommunity = async (communityId) => {
   try {
-    const response = await api.delete(`/communities/${communityId}`);
+    const response = await api.delete(`/api/communities/${communityId}`);
     return response.data;
   } catch (error) {
     console.error("Error deleting community:", error);
@@ -88,7 +89,7 @@ export const deleteCommunity = async (communityId) => {
 // Unirse a una comunidad
 export const joinCommunity = async (communityId, userId) => {
   try {
-    const response = await api.post(`/communities/join`, {
+    const response = await api.post("/api/communities/join", {
       communityId,
       userId,
     });
@@ -102,7 +103,7 @@ export const joinCommunity = async (communityId, userId) => {
 // Dejar una comunidad
 export const leaveCommunity = async (communityId, userId) => {
   try {
-    const response = await api.post(`/communities/leave`, {
+    const response = await api.post("/api/communities/leave", {
       communityId,
       userId,
     });
@@ -117,9 +118,7 @@ export const leaveCommunity = async (communityId, userId) => {
 export const sendCommunityMessage = async (messageData) => {
   try {
     console.log(messageData);
-    const response = await api.post(`/communities/messages`, {
-      ...messageData,
-    });
+    const response = await api.post("/api/communities/messages", messageData);
     return response.data;
   } catch (error) {
     console.error("Error sending message:", error);
@@ -130,7 +129,7 @@ export const sendCommunityMessage = async (messageData) => {
 // Obtener mensajes de la comunidad
 export const getCommunityMessages = async (communityId) => {
   try {
-    const response = await api.get(`/communities/${communityId}/messages`);
+    const response = await api.get(`/api/communities/${communityId}/messages`);
     return response.data;
   } catch (error) {
     console.error("Error fetching messages:", error);
@@ -141,7 +140,7 @@ export const getCommunityMessages = async (communityId) => {
 // Obtener chatId de la comunidad
 export const getChatId = async (communityId) => {
   try {
-    const response = await api.get(`/communities/${communityId}/chat`);
+    const response = await api.get(`/api/communities/${communityId}/chat`);
     return response.data;
   } catch (error) {
     console.error("Error fetching chatId:", error);
@@ -152,7 +151,7 @@ export const getChatId = async (communityId) => {
 // Obtener comunidades del usuario
 export const getUserCommunities = async () => {
   try {
-    const response = await api.get(`/communities/user`);
+    const response = await api.get("/api/communities/user");
     return response.data;
   } catch (error) {
     console.error("Error fetching user communities:", error);
@@ -163,7 +162,7 @@ export const getUserCommunities = async () => {
 // Obtener miembros de la comunidad
 export const getCommunityMembers = async (communityId) => {
   try {
-    const response = await api.get(`/communities/${communityId}/members`);
+    const response = await api.get(`/api/communities/${communityId}/members`);
     return response.data;
   } catch (error) {
     console.error("Error fetching community members:", error);
@@ -174,7 +173,7 @@ export const getCommunityMembers = async (communityId) => {
 // Obtener comunidades creadas por el usuario
 export const getUserCreatedCommunities = async () => {
   try {
-    const response = await api.get(`/communities/user/created`);
+    const response = await api.get("/api/communities/user/created");
     return response.data;
   } catch (error) {
     console.error("Error fetching user created communities:", error);

@@ -11,6 +11,7 @@ import SecondaryButton from "../Button/SecondaryButton";
 import { useNavigate } from "react-router-dom";
 import { faCrown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Chat = ({ selectedUser }) => {
   const [conversationId, setConversationId] = useState(null);
@@ -76,7 +77,7 @@ const Chat = ({ selectedUser }) => {
             <img
               src={
                 selectedUser.photo
-                  ? `http://localhost:5000/uploads/${selectedUser.photo}`
+                  ? `${API_URL}/uploads/${selectedUser.photo}`
                   : "../default-image.jpg"
               }
               alt={selectedUser.fullName}

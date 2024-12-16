@@ -11,6 +11,7 @@ import { getEvents } from "../service/events";
 import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/Button/PrimaryButton";
 import SecondaryButton from "../components/Button/SecondaryButton";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const EventMap = () => {
   const [isListVisible, setIsListVisible] = useState(false);
@@ -138,7 +139,7 @@ const EventMap = () => {
                   className="cursor-pointer border rounded shadow-md w-full"
                 >
                   <img
-                    src={`http://localhost:5000/${event.image}`}
+                    src={`${API_URL}/${event.image}`}
                     alt="Post"
                     className="w-full h-48 object-cover rounded-t"
                   />
@@ -225,7 +226,7 @@ const EventMap = () => {
                 className=" cursor-pointer"
               >
                 <img
-                  src={`http://localhost:5000/${event.image}`}
+                  src={`${API_URL}/${event.image}`}
                   alt={event.title}
                   className="h-36 w-full object-cover object-center m-0"
                 />

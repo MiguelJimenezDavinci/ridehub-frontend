@@ -7,7 +7,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado para el menú móvil
   const [userMenuOpen, setUserMenuOpen] = useState(false); // Estado para el menú del usuario
   const navigate = useNavigate();
-  const { logout, user } = useAuth(); // Obtener información de usuario
+  const { logout, user } = useAuth();
+  const API_URL = import.meta.env.VITE_API_URL; // Obtener información de usuario
 
   const toggleMenu = () => {
     setIsOpen(!isOpen); // Cambiar el estado del menú en dispositivos móviles
@@ -61,7 +62,7 @@ const Navbar = () => {
                 className="w-10 h-10 rounded-full"
                 src={
                   user.photo
-                    ? `http://localhost:5000/uploads/${user.photo}`
+                    ? `${API_URL}/uploads/${user.photo}`
                     : "../default-image.jpg"
                 }
                 alt="user photo"

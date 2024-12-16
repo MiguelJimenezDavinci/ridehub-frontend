@@ -12,6 +12,7 @@ const AllCommunities = () => {
   const [error, setError] = useState("");
   const { user } = useAuth();
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchCommunities = async () => {
@@ -107,7 +108,7 @@ const AllCommunities = () => {
               <img
                 src={
                   community.media
-                    ? `http://localhost:5000/${community.media}`
+                    ? `${API_URL}/${community.media}`
                     : "https://via.placeholder.com/400x200"
                 }
                 alt={community.name}

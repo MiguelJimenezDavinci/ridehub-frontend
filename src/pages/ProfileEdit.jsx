@@ -22,6 +22,7 @@ const ProfileEdit = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const navigate = useNavigate();
 
@@ -178,7 +179,7 @@ const ProfileEdit = () => {
               src={
                 selectedFile
                   ? URL.createObjectURL(selectedFile) // Imagen seleccionada
-                  : `http://localhost:5000/uploads/${formData.photo}` // Imagen del servidor
+                  : `${API_URL}/uploads/${formData.photo}` // Imagen del servidor
               }
               alt="Vista previa"
               className="w-48 h-48 rounded-full object-cover mx-auto"

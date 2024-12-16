@@ -22,6 +22,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SecondaryButton from "../components/Button/SecondaryButton";
 import PrimaryButton from "../components/Button/PrimaryButton";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Admin = () => {
   const [view, setView] = useState("events");
@@ -197,14 +198,14 @@ const Admin = () => {
         return data.map((event) => (
           <div key={event._id} className="mb-4 border rounded-lg shadow">
             <img
-              src={`http://localhost:5000/${event.image}`}
+              src={`${API_URL}/${event.image}`}
               alt={event.title}
               className="w-full h-48 object-cover object-center rounded-t-lg "
             />
             <div className="p-4 ">
               <div className="flex justify-start items-center">
                 <img
-                  src={`http://localhost:5000/uploads/${event.creator?.photo}`}
+                  src={`${API_URL}/uploads/${event.creator?.photo}`}
                   alt={event.creator?.username}
                   className="w-10 h-10 object-cover rounded-full"
                 />
@@ -246,7 +247,7 @@ const Admin = () => {
               <img
                 src={
                   post.media
-                    ? `http://localhost:5000/${post.media}`
+                    ? `${API_URL}/${post.media}`
                     : "../default-image.jpg"
                 }
                 alt={post.description}
@@ -256,7 +257,7 @@ const Admin = () => {
             <div className="p-4">
               <div className="flex justify-start items-center">
                 <img
-                  src={`http://localhost:5000/uploads/${post.creator?.photo}`}
+                  src={`${API_URL}/uploads/${post.creator?.photo}`}
                   alt={post.creator?.username}
                   className="w-10 h-10 object-cover rounded-full"
                 />
@@ -314,7 +315,7 @@ const Admin = () => {
         return data.map((community) => (
           <div key={community._id} className="mb-4 border rounded-lg shadow">
             <img
-              src={`http://localhost:5000/${community.media}`}
+              src={`${API_URL}/${community.media}`}
               alt={community.name}
               className="w-full h-48 object-cover object-center rounded-t-lg"
             />
@@ -324,7 +325,7 @@ const Admin = () => {
                 <img
                   src={
                     community.creator?.photo
-                      ? `http://localhost:5000/uploads/${community.creator?.photo}`
+                      ? `${API_URL}/uploads/${community.creator?.photo}`
                       : "../default-image.jpg"
                   }
                   alt={community.creator?.username}
@@ -366,7 +367,7 @@ const Admin = () => {
                 <img
                   src={
                     user?.photo
-                      ? `http://localhost:5000/uploads/${user?.photo}`
+                      ? `${API_URL}/uploads/${user?.photo}`
                       : "../default-image.jpg"
                   }
                   alt={user?.username}

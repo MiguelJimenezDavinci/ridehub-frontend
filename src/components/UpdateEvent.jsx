@@ -22,6 +22,7 @@ const EventUpdate = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // Tu token de acceso de Mapbox
   const mapboxToken =
@@ -137,7 +138,7 @@ const EventUpdate = () => {
             />
           ) : existingImage ? (
             <img
-              src={`http://localhost:5000/${existingImage}`}
+              src={`${API_URL}/${existingImage}`}
               alt="Evento"
               className="w-full h-60   object-cover object-center rounded-lg"
             />

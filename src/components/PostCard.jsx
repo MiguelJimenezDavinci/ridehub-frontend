@@ -5,6 +5,7 @@ import {
   faThumbsUp,
   faCrown,
 } from "@fortawesome/free-solid-svg-icons";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const PostCard = ({
   creator = {}, // Valor por defecto
@@ -40,7 +41,7 @@ const PostCard = ({
       <img
         src={
           formattedMedia
-            ? `http://localhost:5000/${formattedMedia}`
+            ? `${API_URL}/${formattedMedia}`
             : "../default-image.jpg"
         }
         alt={creator?.username || "Imagen no disponible"}
@@ -51,7 +52,7 @@ const PostCard = ({
         <div>
           <div className="flex items-center ">
             <img
-              src={`http://localhost:5000/uploads/${creator?.photo}`}
+              src={`${API_URL}/uploads/${creator?.photo}`}
               alt={creator?.username || "Imagen no disponible"}
               className="w-10 h-10 object-cover rounded-full"
             />

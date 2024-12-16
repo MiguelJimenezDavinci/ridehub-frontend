@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import PrimaryButton from "../components/Button/PrimaryButton";
 import SecondaryButton from "../components/Button/SecondaryButton";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Profile = () => {
   const { user, isAuthenticated } = useAuth();
@@ -322,7 +323,7 @@ const Profile = () => {
               <img
                 src={
                   profileData.photo
-                    ? `http://localhost:5000/uploads/${profileData.photo}`
+                    ? `${API_URL}/uploads/${profileData.photo}`
                     : "../default-image.jpg"
                 }
                 alt="Profile"
@@ -474,7 +475,7 @@ const Profile = () => {
                         className="cursor-pointer border rounded shadow-md"
                       >
                         <img
-                          src={`http://localhost:5000/${post.media}`}
+                          src={`${API_URL}/${post.media}`}
                           alt="Post"
                           className="w-full h-48 object-cover rounded-t"
                         />
@@ -560,7 +561,7 @@ const Profile = () => {
                         onClick={() => handleShowEvent(event._id)}
                       >
                         <img
-                          src={`http://localhost:5000/${event.image}`}
+                          src={`${API_URL}/${event.image}`}
                           alt="Event"
                           className="w-full h-48 object-cover rounded-t"
                         />
@@ -637,7 +638,7 @@ const Profile = () => {
                         <img
                           src={
                             comm.media
-                              ? `http://localhost:5000/${comm.media}`
+                              ? `${API_URL}/${comm.media}`
                               : "../default-image.jpg"
                           }
                           alt="Community"

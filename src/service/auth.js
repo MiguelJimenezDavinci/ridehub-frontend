@@ -1,9 +1,10 @@
 // src/services/auth.js
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
 // Configuración de axios para el backend
 const api = axios.create({
-  baseURL: "http://localhost:5000/api/auth", // Asegúrate de que esta URL coincide con la del backend
+  baseURL: API_URL, // Directamente la variable, no es necesario envolverla en un objeto
 });
 
 // Interceptor para agregar el token de autenticación a todas las solicitudes
@@ -23,30 +24,30 @@ const handleError = (error) => {
 
 // Funciones de autenticación
 export const register = (userData) =>
-  api.post("/register", userData).catch(handleError);
+  api.post("/api/auth/register", userData).catch(handleError);
 
 export const login = async (credentials) => {
   try {
-    const response = await api.post("/login", credentials);
+    const response = await api.post("/api/auth/login", credentials);
     return response.data; // Retorna los datos de la respuesta, que deberían incluir el token y el usuario
   } catch (error) {
     handleError(error); // Llama a la función de manejo de errores
   }
 };
 
-export const getUsers = () => api.get("/users").catch(handleError); // Asegúrate de manejar el error aquí también
+export const getUsers = () => api.get("/api/auth/users").catch(handleError); // Asegúrate de manejar el error aquí también
 
 // Funciones protegidas con autenticación
-export const getProfile = () => api.get("/profile").catch(handleError);
+export const getProfile = () => api.get("/api/auth/profile").catch(handleError);
 
 export const updateProfile = (profileData) =>
-  api.put("/profile", profileData).catch(handleError);
+  api.put("/api/auth/profile", profileData).catch(handleError);
 
 export const updateRole = (userId, role) => {
   const roleData = { userId, role };
-  return api.put("/profile/role", roleData).catch(handleError);
+  return api.put("/api/auth/profile/role", roleData).catch(handleError);
 };
 
 export const deleteAccount = (userId) => {
-  return api.delete(`/profile/${userId}`).catch(handleError);
+  return api.delete(`/api/auth/profile/${userId}`).catch(handleError);
 };
