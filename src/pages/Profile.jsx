@@ -561,7 +561,7 @@ const Profile = () => {
                         onClick={() => handleShowEvent(event._id)}
                       >
                         <img
-                          src={`${API_URL}/${event.image}`}
+                          src={`${event.image}`}
                           alt="Event"
                           className="w-full h-48 object-cover rounded-t"
                         />

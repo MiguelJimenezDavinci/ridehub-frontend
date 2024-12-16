@@ -140,9 +140,7 @@ const EventMap = () => {
                 >
                   <img
                     src={
-                      event.image
-                        ? `${API_URL}/${event.image}`
-                        : "../default-image.jpg"
+                      event.image ? `${event.image}` : "../default-image.jpg"
                     }
                     alt="Post"
                     className="w-full h-48 object-cover object-center rounded-t"
