@@ -108,7 +108,7 @@ const AllCommunities = () => {
               <img
                 src={
                   community.media
-                    ? `${API_URL}/${community.media}`
+                    ? `${community.media}`
                     : "https://via.placeholder.com/400x200"
                 }
                 alt={community.name}

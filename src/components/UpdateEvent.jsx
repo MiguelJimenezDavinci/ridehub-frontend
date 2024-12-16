@@ -138,7 +138,7 @@ const EventUpdate = () => {
             />
           ) : existingImage ? (
             <img
-              src={`${API_URL}/${existingImage}`}
+              src={`${existingImage}`}
               alt="Evento"
               className="w-full h-60   object-cover object-center rounded-lg"
             />

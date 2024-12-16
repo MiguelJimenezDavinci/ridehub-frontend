@@ -60,11 +60,7 @@ const Navbar = () => {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-10 h-10 rounded-full"
-                src={
-                  user.photo
-                    ? `${API_URL}/uploads/${user.photo}`
-                    : "../default-image.jpg"
-                }
+                src={user.photo ? `${user.photo}` : "../default-image.jpg"}
                 alt="user photo"
               />
             </button>

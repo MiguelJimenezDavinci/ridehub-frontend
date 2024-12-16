@@ -179,7 +179,7 @@ const ProfileEdit = () => {
               src={
                 selectedFile
                   ? URL.createObjectURL(selectedFile) // Imagen seleccionada
-                  : `${API_URL}/uploads/${formData.photo}` // Imagen del servidor
+                  : `${formData.photo}` // Imagen del servidor
               }
               alt="Vista previa"
               className="w-48 h-48 rounded-full object-cover mx-auto"

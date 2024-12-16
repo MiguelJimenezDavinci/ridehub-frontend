@@ -198,14 +198,14 @@ const Admin = () => {
         return data.map((event) => (
           <div key={event._id} className="mb-4 border rounded-lg shadow">
             <img
-              src={`${API_URL}/${event.image}`}
+              src={`${event.image}`}
               alt={event.title}
               className="w-full h-48 object-cover object-center rounded-t-lg "
             />
             <div className="p-4 ">
               <div className="flex justify-start items-center">
                 <img
-                  src={`${API_URL}/uploads/${event.creator?.photo}`}
+                  src={`${event.creator?.photo}`}
                   alt={event.creator?.username}
                   className="w-10 h-10 object-cover rounded-full"
                 />
@@ -245,11 +245,7 @@ const Admin = () => {
           <div key={post._id} className="mb-4 border rounded-lg shadow">
             <div className="">
               <img
-                src={
-                  post.media
-                    ? `${API_URL}/${post.media}`
-                    : "../default-image.jpg"
-                }
+                src={post.media ? `${post.media}` : "../default-image.jpg"}
                 alt={post.description}
                 className="w-full h-48 object-cover object-center rounded-t-lg"
               />
@@ -257,7 +253,7 @@ const Admin = () => {
             <div className="p-4">
               <div className="flex justify-start items-center">
                 <img
-                  src={`${API_URL}/uploads/${post.creator?.photo}`}
+                  src={`${post.creator?.photo}`}
                   alt={post.creator?.username}
                   className="w-10 h-10 object-cover rounded-full"
                 />
@@ -315,7 +311,7 @@ const Admin = () => {
         return data.map((community) => (
           <div key={community._id} className="mb-4 border rounded-lg shadow">
             <img
-              src={`${API_URL}/${community.media}`}
+              src={`${community.media}`}
               alt={community.name}
               className="w-full h-48 object-cover object-center rounded-t-lg"
             />
@@ -325,7 +321,7 @@ const Admin = () => {
                 <img
                   src={
                     community.creator?.photo
-                      ? `${API_URL}/uploads/${community.creator?.photo}`
+                      ? `${community.creator?.photo}`
                       : "../default-image.jpg"
                   }
                   alt={community.creator?.username}
@@ -365,11 +361,7 @@ const Admin = () => {
             <div className="">
               <div className="flex justify-start items-center mb-2">
                 <img
-                  src={
-                    user?.photo
-                      ? `${API_URL}/uploads/${user?.photo}`
-                      : "../default-image.jpg"
-                  }
+                  src={user?.photo ? `${user?.photo}` : "../default-image.jpg"}
                   alt={user?.username}
                   className="w-10 h-10 object-cover rounded-full"
                 />

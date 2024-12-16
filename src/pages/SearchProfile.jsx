@@ -88,7 +88,7 @@ const SearchProfile = () => {
                 <img
                   src={
                     userProfile.photo
-                      ? `${API_URL}/uploads/${userProfile.photo}`
+                      ? `${userProfile.photo}`
                       : "../default-image.jpg"
                   }
                   alt={userProfile.fullName}
@@ -125,9 +125,7 @@ const SearchProfile = () => {
                   <div className="flex justify-start items-center gap-2">
                     <img
                       src={
-                        user.photo
-                          ? `${API_URL}/uploads/${user.photo}`
-                          : "../default-image.jpg"
+                        user.photo ? `/${user.photo}` : "../default-image.jpg"
                       }
                       alt={user.fullName}
                       className="w-12 h-12 rounded-full"

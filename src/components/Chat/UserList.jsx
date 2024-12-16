@@ -63,7 +63,7 @@ const UserList = ({ onSelectUser }) => {
             title: `¿Seleccionar a ${userProfile.fullName}?`,
             text: `@${userProfile.username}`,
             imageUrl: userProfile.photo
-              ? `${API_URL}/uploads/${userProfile.photo}`
+              ? `${userProfile.photo}`
               : "../default-image.jpg",
             imageWidth: 64,
             imageHeight: 64,
@@ -135,7 +135,7 @@ const UserList = ({ onSelectUser }) => {
                   <img
                     src={
                       otherUser.photo
-                        ? `${API_URL}/uploads/${otherUser.photo}`
+                        ? `uploads/${otherUser.photo}`
                         : "../default-image.jpg"
                     }
                     alt={otherUser.fullName || "Usuario"}

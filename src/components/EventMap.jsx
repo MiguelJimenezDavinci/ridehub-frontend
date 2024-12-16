@@ -228,7 +228,7 @@ const EventMap = () => {
                 className=" cursor-pointer"
               >
                 <img
-                  src={`${API_URL}/${event.image}`}
+                  src={`${event.image}`}
                   alt={event.title}
                   className="h-36 w-full object-cover object-center m-0"
                 />

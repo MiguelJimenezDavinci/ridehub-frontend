@@ -77,7 +77,7 @@ const Chat = ({ selectedUser }) => {
             <img
               src={
                 selectedUser.photo
-                  ? `${API_URL}/uploads/${selectedUser.photo}`
+                  ? `${selectedUser.photo}`
                   : "../default-image.jpg"
               }
               alt={selectedUser.fullName}

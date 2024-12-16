@@ -39,11 +39,7 @@ const PostCard = ({
       className="bg-white shadow-md rounded-lg overflow-hidden mb-4 cursor-pointer hover:shadow-lg transition-shadow w-full"
     >
       <img
-        src={
-          formattedMedia
-            ? `${API_URL}/${formattedMedia}`
-            : "../default-image.jpg"
-        }
+        src={formattedMedia ? `${formattedMedia}` : "../default-image.jpg"}
         alt={creator?.username || "Imagen no disponible"}
         className="w-full h-48 object-cover"
       />
@@ -52,7 +48,7 @@ const PostCard = ({
         <div>
           <div className="flex items-center ">
             <img
-              src={`${API_URL}/uploads/${creator?.photo}`}
+              src={`${creator?.photo}`}
               alt={creator?.username || "Imagen no disponible"}
               className="w-10 h-10 object-cover rounded-full"
             />

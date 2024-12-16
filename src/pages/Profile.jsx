@@ -323,7 +323,7 @@ const Profile = () => {
               <img
                 src={
                   profileData.photo
-                    ? `${API_URL}/uploads/${profileData.photo}`
+                    ? `${profileData.photo}`
                     : "../default-image.jpg"
                 }
                 alt="Profile"
@@ -475,7 +475,7 @@ const Profile = () => {
                         className="cursor-pointer border rounded shadow-md"
                       >
                         <img
-                          src={`${API_URL}/${post.media}`}
+                          src={`/${post.media}`}
                           alt="Post"
                           className="w-full h-48 object-cover rounded-t"
                         />
@@ -561,7 +561,7 @@ const Profile = () => {
                         onClick={() => handleShowEvent(event._id)}
                       >
                         <img
-                          src={`${event.image}`}
+                          src={event.image}
                           alt="Event"
                           className="w-full h-48 object-cover rounded-t"
                         />
@@ -638,7 +638,7 @@ const Profile = () => {
                         <img
                           src={
                             comm.media
-                              ? `${API_URL}/${comm.media}`
+                              ? `/${comm.media}`
                               : "../default-image.jpg"
                           }
                           alt="Community"

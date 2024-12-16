@@ -165,9 +165,7 @@ const CommunityChat = () => {
             <img
               src={
                 users[communityMessages[0]?.sender]?.data?.photo
-                  ? `${API_URL}/uploads/${
-                      users[communityMessages[0]?.sender]?.data?.photo
-                    }`
+                  ? `${users[communityMessages[0]?.sender]?.data?.photo}`
                   : "../default-image.jpg"
               }
               alt={users[communityMessages[0]?.sender]?.data?.fullName}
@@ -198,7 +196,7 @@ const CommunityChat = () => {
             <img
               src={
                 communityData.media
-                  ? `${API_URL}/${communityData.media}`
+                  ? `${communityData.media}`
                   : "../default-image.jpg"
               }
               alt=""
@@ -231,9 +229,7 @@ const CommunityChat = () => {
                         <img
                           src={
                             users[msg.sender]?.data?.photo
-                              ? `${API_URL}/uploads/${
-                                  users[msg.sender]?.data?.photo
-                                }`
+                              ? `${users[msg.sender]?.data?.photo}`
                               : "../default-image.jpg"
                           }
                           alt=""

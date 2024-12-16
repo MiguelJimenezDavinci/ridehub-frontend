@@ -131,14 +131,14 @@ const PostShow = () => {
           {/* Post Content */}
           <div className=" w-full p-4">
             <img
-              src={`${API_URL}/${post.media}`}
+              src={`${post.media}`}
               alt="Post"
               className="w-full h-48 object-cover object-center rounded-xl mb-2"
             />
 
             <div className="flex items-center ">
               <img
-                src={`${API_URL}/uploads/${post.creator?.photo}`}
+                src={`${post.creator?.photo}`}
                 alt={post.creator?.username || "Imagen no disponible"}
                 className="w-10 h-10 object-cover rounded-full"
               />
@@ -203,7 +203,7 @@ const PostShow = () => {
                       <img
                         src={
                           c.user.photo
-                            ? `${API_URL}/uploads/${c.user.photo}`
+                            ? `${c.user.photo}`
                             : "../default-image.jpg"
                         }
                         alt="Profile"
@@ -265,7 +265,7 @@ const PostShow = () => {
                     className="cursor-pointer border rounded shadow-md"
                   >
                     <img
-                      src={`${API_URL}/${post.media}`}
+                      src={`${post.media}`}
                       alt="Post"
                       className="w-full h-48 object-cover rounded-t"
                     />

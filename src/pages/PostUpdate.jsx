@@ -145,7 +145,7 @@ const UpdatePost = () => {
               src={
                 selectedFile
                   ? URL.createObjectURL(selectedFile) // Imagen seleccionada
-                  : `${API_URL}/${postData.media}` // Imagen del servidor
+                  : `${postData.media}` // Imagen del servidor
               }
               alt="Vista previa"
               className="bg-gray-300 w-full h-64 rounded-lg flex items-center justify-center text-gray-700 object-cover object-center"
