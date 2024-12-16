@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../service/auth";
 import { useAuth } from "../context/AuthContext";
 import SecondaryButton from "../components/Button/SecondaryButton";
@@ -112,12 +112,12 @@ const Login = () => {
         <div className="text-center mt-2">
           <p className="text-xs sm:text-sm">
             ¿No tienes cuenta?{" "}
-            <a
-              href="/register"
+            <Link
+              to="/register"
               className="text-slate-900 font-medium hover:underline"
             >
               Regístrate
-            </a>
+            </Link>
           </p>
         </div>
       </div>

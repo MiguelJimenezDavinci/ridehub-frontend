@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,25 +20,25 @@ const Footer = () => {
     >
       <div className="container mx-auto text-center text-sm">
         <nav className="mt-4 text-s">
-          <a
-            href="/landing"
+          <Link
+            to="/landing"
             className="mx-3  text-white hover:text-gray-400 transition duration-300"
           >
             Acerca de Nosotros
-          </a>
-          <a
-            href="/landing"
+          </Link>
+          <Link
+            to="/landing"
             className="mx-3 text-white hover:text-gray-400 transition duration-300"
           >
             Contacto
-          </a>
+          </Link>
 
-          <a
-            href="/landing"
+          <Link
+            to="/landing"
             className="mx-3 text-white hover:text-gray-400 transition duration-300"
           >
             Política de Privacidad
-          </a>
+          </Link>
         </nav>
         <p className="text-text-xs mt-2 ">
           &copy; {new Date().getFullYear()} RideHub. Todos los derechos
