@@ -179,7 +179,7 @@ const ProfileEdit = () => {
       return;
     }
 
-    if (formData.bikeDetails.year < 1900 || formData.bikeDetails.year > 2022) {
+    if (formData.bikeDetails.year < 1900 || formData.bikeDetails.year > 2025) {
       setError("Por favor ingresa un año válido.");
       return;
     }

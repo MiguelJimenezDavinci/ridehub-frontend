@@ -100,7 +100,7 @@ const CreateEvent = () => {
       setDate("");
       setSelectedLocation(null);
       setImage(null);
-      navigate("/");
+      navigate("/profile");
     } catch (err) {
       console.error(err);
       const errorMessage =
