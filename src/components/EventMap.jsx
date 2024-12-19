@@ -7,13 +7,11 @@ import {
   faUser,
   faLocationDot,
   faCalendarAlt,
-  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { getEvents } from "../service/events";
 import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/Button/PrimaryButton";
 import SecondaryButton from "../components/Button/SecondaryButton";
-const API_URL = import.meta.env.VITE_API_URL;
 
 const EventMap = () => {
   const [isListVisible, setIsListVisible] = useState(false);
@@ -74,9 +72,7 @@ const EventMap = () => {
       <div className="flex justify-center items-center h-screen bg-gray-100   ">
         <div className="loader">
           <svg
-            xml:space="preserve"
             viewBox="0 0 254.532 254.532"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
             xmlns="http://www.w3.org/2000/svg"
             id="Capa_1"
             version="1.1"
@@ -223,11 +219,7 @@ const EventMap = () => {
             icon={L.divIcon({
               className: "custom-icon",
               html: `<div class="custom-icon-marker">
-                <img src="${
-                  event.image ? `${event.image}` : "../default-image.jpg"
-                }" alt="${
-                event.title
-              }" class="h-12 w-12 rounded-full object-contain object-center"/>
+                <img src="../location-dot.png" class="h-14 rounded-full object-cover object-center" />
               </div>`,
               iconSize: [30, 30],
               iconAnchor: [30, 30],

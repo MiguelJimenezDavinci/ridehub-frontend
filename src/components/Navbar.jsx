@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,10 @@ const Navbar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false); // Estado para el menú del usuario
   const navigate = useNavigate();
   const { logout, user } = useAuth();
-  const API_URL = import.meta.env.VITE_API_URL; // Obtener información de usuario
+
+  if (!user) {
+    navigate("/login");
+  }
 
   const toggleMenu = () => {
     setIsOpen(!isOpen); // Cambiar el estado del menú en dispositivos móviles
@@ -60,7 +63,7 @@ const Navbar = () => {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-10 h-10 rounded-full"
-                src={user.photo ? `${user.photo}` : "../default-image.jpg"}
+                src={user?.photo ? `${user?.photo}` : "../default-image.jpg"}
                 alt="user photo"
               />
             </button>
@@ -131,13 +134,7 @@ const Navbar = () => {
                 fill="none"
                 viewBox="0 0 17 14"
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
+                <path stroke="currentColor" d="M1 1h15M1 7h15M1 13h15" />
               </svg>
             </button>
           </div>

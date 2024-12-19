@@ -5,7 +5,7 @@ import { getPosts } from "../service/post";
 import { useNavigate } from "react-router-dom";
 
 const Posts = () => {
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true); // Estado de carga
@@ -15,13 +15,8 @@ const Posts = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!isAuthenticated) {
-        navigate("/login");
-        return;
-      }
-
       try {
-        const postsResponse = await getPosts(user.id);
+        const postsResponse = await getPosts(user?.id);
         setPosts(postsResponse);
       } catch (err) {
         console.error(err);
@@ -34,7 +29,7 @@ const Posts = () => {
     };
 
     fetchData();
-  }, [isAuthenticated, navigate, user]);
+  }, [navigate, user]);
 
   if (loading) {
     return (

@@ -284,7 +284,7 @@ const Premium = () => {
             </ul>
             <div className="mt-6 text-center">
               <p className="text-lg font-semibold text-yellow-800">
-                Costo: <span className="text-2xl">$9.99</span>/mes
+                Costo: <span className="text-2xl">$9.99 USD</span>/mes
               </p>
             </div>
           </div>

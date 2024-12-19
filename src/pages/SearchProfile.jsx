@@ -128,7 +128,7 @@ const SearchProfile = () => {
                         user.photo ? `${user.photo}` : "../default-image.jpg"
                       }
                       alt={user.fullName}
-                      className="w-12 h-12 rounded-full"
+                      className="w-12 h-12 rounded-full object-cover object-center"
                     />
                     <div>
                       <h3 className="text-lg font-semibold">

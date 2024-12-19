@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 // Crea el contexto
 const AuthContext = createContext();
@@ -22,7 +23,8 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user"); // Elimina el usuario de localStorage al cerrar sesión
+    localStorage.removeItem("user");
+    console.log("Logging out");
   };
 
   const isAuthenticated = !!user; // Devuelve true si hay un usuario

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { getConversations } from "../../service/chat";
@@ -7,7 +8,6 @@ import { useAuth } from "../../context/AuthContext";
 import SecondaryButton from "../../components/Button/SecondaryButton";
 import { faCrown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const API_URL = import.meta.env.VITE_API_URL;
 
 const MySwal = withReactContent(Swal);
 
@@ -23,7 +23,7 @@ const UserList = ({ onSelectUser }) => {
         const data = await getConversations(user.id);
 
         const filteredUsers = data.filter(
-          (conversation) => conversation._id !== user.id
+          (conversation) => conversation._id !== user?.id
         );
         setUsers(filteredUsers || []);
       } catch (error) {
@@ -33,7 +33,7 @@ const UserList = ({ onSelectUser }) => {
       }
     };
     fetchConversations();
-  }, [user.id]);
+  }, [user?.id]);
 
   const handleSearchUser = async () => {
     const { value: username } = await MySwal.fire({
@@ -103,7 +103,6 @@ const UserList = ({ onSelectUser }) => {
       }
     }
   };
-  console.log("Usuario logueado: ", user.id);
 
   return (
     <div className="p-4">
@@ -135,7 +134,7 @@ const UserList = ({ onSelectUser }) => {
                   <img
                     src={
                       otherUser.photo
-                        ? `uploads/${otherUser.photo}`
+                        ? `${otherUser.photo}`
                         : "../default-image.jpg"
                     }
                     alt={otherUser.fullName || "Usuario"}
@@ -167,6 +166,9 @@ const UserList = ({ onSelectUser }) => {
       )}
     </div>
   );
+};
+UserList.propTypes = {
+  onSelectUser: PropTypes.func.isRequired,
 };
 
 export default UserList;

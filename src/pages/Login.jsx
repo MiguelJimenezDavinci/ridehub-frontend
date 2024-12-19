@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-[url('../bg-login-1.jpeg')] bg-cover bg-center">
-      <div className="bg-gray-200/80 p-6 sm:p-8 w-full max-w-md rounded-2xl shadow-md transition-transform duration-300 transform hover:scale-105">
+      <div className="bg-gray-200/80 p-6 sm:p-8 w-full max-w-md rounded-2xl shadow-md transition-transform duration-300 transform ">
         <div className="flex justify-center mb-4">
           <img
             src="../ridehub-logo-1.png"

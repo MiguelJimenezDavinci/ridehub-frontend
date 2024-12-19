@@ -46,7 +46,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!isAuthenticated) {
+      if (!user) {
         navigate("/login");
         return;
       }
@@ -638,7 +638,7 @@ const Profile = () => {
                         <img
                           src={
                             comm.media
-                              ? `/${comm.media}`
+                              ? `${comm.media}`
                               : "../default-image.jpg"
                           }
                           alt="Community"

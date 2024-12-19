@@ -117,7 +117,7 @@ const CreatePost = () => {
     setLoading(true);
 
     if (user.role === "user") {
-      if (posts.length >= 1) {
+      if (posts.length >= 10) {
         const result = await Swal.fire({
           title: "Has alcanzado el límite de eventos",
           text: "Hazte premium para crear más eventos",

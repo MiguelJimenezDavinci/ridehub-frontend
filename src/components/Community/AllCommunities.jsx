@@ -97,6 +97,13 @@ const AllCommunities = () => {
     <div className="flex flex-col items-center p-4 bg-[url('../rider-1.jpg')] min-h-screen mt-16">
       <div className="flex flex-col max-w-screen-lg w-full bg-white shadow-md rounded-lg p-4">
         <h1 className="text-3xl font-bold mb-4">Comunidades</h1>
+        <p className="text-gray-700 mb-4">
+          Explora y únete a las comunidades que más te interesen. Aquí
+          encontrarás grupos con personas con intereses similares, donde podrás
+          mantenerte informado acerca de próximos eventos, obtener conocimientos
+          y mucho más.
+        </p>
+
         {error && <p className="text-red-500">{error}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {communities.map((community) => (

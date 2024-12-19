@@ -130,7 +130,7 @@ const Chat = ({ selectedUser }) => {
       </div>
 
       {/* Input Area */}
-      <div className="flex items-center p-4 border-t gap-4 bg-white">
+      <div className="flex flex-col md:flex-row justify-center items-center p-4 border-t gap-4 bg-white">
         <input
           type="text"
           value={newMessage}

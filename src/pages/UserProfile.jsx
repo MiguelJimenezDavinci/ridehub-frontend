@@ -16,6 +16,7 @@ import { getCommunityByUserId } from "../service/community";
 import SecondaryButton from "../components/Button/SecondaryButton";
 import PrimaryButton from "../components/Button/PrimaryButton";
 import { useAuth } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const UserProfile = () => {
   const { user } = useAuth();
@@ -104,8 +105,26 @@ const UserProfile = () => {
 
   const handleShowPost = (postId) => navigate(`/post/${postId}`);
   const handleShowEvent = (eventId) => navigate(`/events/${eventId}`);
-  const handleShowCommunity = (communityId) =>
+  const handleShowCommunity = (communityId) => {
+    if (user.role === "user") {
+      Swal.fire({
+        title: "Has descubierto una funcionalidad premium",
+        text: "Hazte premium para unirte a comunidades",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Hazte premium",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/premium");
+        }
+      });
+      return;
+    }
     navigate(`/communities/${communityId}`);
+  };
 
   const handleSendMensage = (userId) => {
     navigate(`/chat/${userId}`);

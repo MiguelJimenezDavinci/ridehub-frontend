@@ -2,7 +2,7 @@ import React from "react";
 
 const MessageInput = ({ value, onChange, onSend }) => {
   return (
-    <div className="flex items-center gap-2 mt-4">
+    <div className=" flex items-center space-x-2">
       <input
         type="text"
         value={value}

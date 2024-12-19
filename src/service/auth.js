@@ -29,6 +29,8 @@ export const register = (userData) =>
 export const login = async (credentials) => {
   try {
     const response = await api.post("/api/auth/login", credentials);
+    const { token } = response.data;
+    localStorage.setItem("authToken", token);
     return response.data; // Retorna los datos de la respuesta, que deberían incluir el token y el usuario
   } catch (error) {
     handleError(error); // Llama a la función de manejo de errores
