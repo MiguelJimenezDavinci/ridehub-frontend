@@ -150,6 +150,50 @@ const ProfileEdit = () => {
       dataToSend.append("photo", selectedFile);
     }
 
+    if (formData.photo) {
+      dataToSend.append("photo", formData.photo);
+    }
+
+    if (!formData.username || !formData.email || !formData.fullName) {
+      setError("Por favor completa todos los campos.");
+      return;
+    }
+
+    if (!formData.location) {
+      setError("Por favor selecciona una ubicación.");
+      return;
+    }
+
+    if (!formData.bikeDetails.brand || !formData.bikeDetails.model) {
+      setError("Por favor selecciona una marca y modelo de moto.");
+      return;
+    }
+
+    if (!formData.bikeDetails.year) {
+      setError("Por favor ingresa el año de la moto.");
+      return;
+    }
+
+    if (!formData.bikeDetails.licensePlate) {
+      setError("Por favor ingresa la matrícula de la moto.");
+      return;
+    }
+
+    if (formData.bikeDetails.year < 1900 || formData.bikeDetails.year > 2022) {
+      setError("Por favor ingresa un año válido.");
+      return;
+    }
+
+    if (formData.bikeDetails.licensePlate.length < 6) {
+      setError("Por favor ingresa una matrícula válida.");
+      return;
+    }
+
+    if (formData.bikeDetails.licensePlate.length > 10) {
+      setError("La matrícula no puede tener más de 10 caracteres.");
+      return;
+    }
+
     try {
       const response = await updateProfile(dataToSend);
       setSuccess("Perfil actualizado exitosamente.");

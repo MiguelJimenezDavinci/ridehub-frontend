@@ -12,13 +12,13 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-100 border border-gray-200 dark:border-gray-700 px-4 sm:px-8 py-3  dark:bg-gray-800 shadow">
       <div className="container flex flex-wrap justify-between items-center mx-auto px-6">
-        <a href="/" className="flex items-center">
+        <Link href="/login" className="flex items-center">
           <img
             src="../ridehub-logo-1.png"
             className="h-10 sm:h-12"
             alt="RideHub Logo"
           />
-        </a>
+        </Link>
         {/* Botón de menú para móviles */}
         <button
           type="button"
