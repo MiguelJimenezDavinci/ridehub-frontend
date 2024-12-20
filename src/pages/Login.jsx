@@ -18,6 +18,13 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+    const { name, value } = e.target;
+    if (name === "emailOrUsername") {
+      // Reemplazar espacios y permitir solo . y -
+      let newValue = value.replace(/[^a-zA-Z0-9.-]/g, "").toLowerCase();
+      setFormData({ ...formData, [name]: newValue });
+    }
+
     if (e.target.name === "username") {
       // Reemplazar espacios y permitir solo . y -
       let newValue = e.target.value
