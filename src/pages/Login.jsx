@@ -17,6 +17,14 @@ const Login = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    if (e.target.name === "username") {
+      // Reemplazar espacios y permitir solo . y -
+      let newValue = e.target.value
+        .replace(/[^a-zA-Z0-9.-]/g, "")
+        .toLowerCase();
+      setFormData({ ...formData, [e.target.name]: newValue });
+    }
   };
 
   const handleSubmit = async (e) => {
